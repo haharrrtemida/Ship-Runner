@@ -18,7 +18,6 @@ public class Loot : CollidableEntity
 
     public override void Interact()
     {
-        base.Interact();
         GameScore.ScoreUp();
         Destroy(gameObject);
     }

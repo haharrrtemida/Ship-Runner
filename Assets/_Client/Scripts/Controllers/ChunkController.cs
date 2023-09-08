@@ -17,7 +17,7 @@ public class ChunkController : MonoBehaviour
     [SerializeField] private Chunk _emptyChunk;
     [SerializeField] private Chunk[] _chunks;
     [SerializeField] private float _movementSpeed = 7;
-    [SerializeField] private Transform _tilemapGrid;
+    [SerializeField] private Transform _levelRoot;
     
     public float ChunkDestroyXPosition => CHUNK_DESTROY_X_POSITION;
     public float MovementSpeed => _movementSpeed;
@@ -53,7 +53,7 @@ public class ChunkController : MonoBehaviour
                 ? GetRandomChunk()
                 : GetRandomChunkByDifficulty();
         
-        Chunk newChunk = Instantiate(chunk, _lastChunk.ConnectionPointPosition, Quaternion.identity, _tilemapGrid);
+        Chunk newChunk = Instantiate(chunk, _lastChunk.ConnectionPointPosition, Quaternion.identity, _levelRoot);
         _activeChunks.Add(newChunk);
         _lastChunk = newChunk;
     }
@@ -89,7 +89,7 @@ public class ChunkController : MonoBehaviour
             Destroy(chunk.gameObject);
         }
         _activeChunks.Clear();
-        _lastChunk = Instantiate(_emptyChunk, Vector2.right * CHUNK_DESTROY_X_POSITION, Quaternion.identity, _tilemapGrid);
+        _lastChunk = Instantiate(_emptyChunk, Vector2.right * CHUNK_DESTROY_X_POSITION, Quaternion.identity, _levelRoot);
         _activeChunks.Add(_lastChunk);
         _lastChunk.enabled = false;
     }

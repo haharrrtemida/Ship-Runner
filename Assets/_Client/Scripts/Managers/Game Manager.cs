@@ -53,7 +53,6 @@ public class GameManager : MonoBehaviour
     {
         _currentGameStatus = GameStatus.GameOver;
         OnGameOver?.Invoke();
-        GameScore.CheckHighscore();
     }
 
     public void InitGame()

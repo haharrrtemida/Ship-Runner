@@ -5,10 +5,5 @@ using UnityEngine;
 /// </summary>
 public abstract class CollidableEntity : MonoBehaviour
 {
-    [SerializeField] private AudioClip _interactSound;
-
-    public virtual void Interact()
-    {
-        SoundManager.Instance.PlaySound(_interactSound);
-    }
+    public abstract void Interact();
 }

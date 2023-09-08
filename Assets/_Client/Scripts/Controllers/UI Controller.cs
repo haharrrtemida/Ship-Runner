@@ -5,13 +5,8 @@ using UnityEngine;
 /// </summary>
 public class UIController : MonoBehaviour
 {
-    private const string SHOW_SCROLL_ANIM_NAME = "Show Scroll";
-    private const string CLOSE_SCROLL_ANIM_NAME = "Scroll Close";
-
     [SerializeField] private GameObject _startBanner;
     [SerializeField] private GameObject _scoreObject;
-    [SerializeField] private GameObject _highscoreObject;
-    [SerializeField] private Animator _animator;
 
     private void Start()
     {
@@ -21,15 +16,12 @@ public class UIController : MonoBehaviour
 
     public void ShowBanner()
     {
-        _animator.CrossFade(SHOW_SCROLL_ANIM_NAME, 0f);
-        _highscoreObject.SetActive(true);
-        _scoreObject.SetActive(false);
+
+        _startBanner.SetActive(true);
     }
 
     public void HideBanner()
     {
-        _scoreObject.SetActive(true);
-        _highscoreObject.SetActive(false);
-        _animator.CrossFade(CLOSE_SCROLL_ANIM_NAME, 0f);
+        _startBanner.SetActive(false);
     }
 }
